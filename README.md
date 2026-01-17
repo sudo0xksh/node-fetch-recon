@@ -1,35 +1,37 @@
-/*
-=========================================
-Node Fetch Recon
-=========================================
+# 🌐 Node Fetch Recon
 
-A simple Node.js CLI tool to fetch a URL
-and inspect response status and body.
+Node Fetch Recon is a simple Node.js CLI tool that fetches a URL
+and prints basic response information for quick inspection.
 
-Developed by sudo_0xksh
-=========================================
-*/
+It is useful for reconnaissance, debugging, and understanding
+how servers respond to requests.
 
-const url = process.argv[2];
+---
 
-if (!url) {
-  console.log("Usage: node fetch_recon.js <url>");
-  process.exit(1);
-}
+## Overview
 
-fetch(url)
-  .then(res => {
-    console.log("Status:", res.status);
-    return res.text();
-  })
-  .then(body => {
-    console.log("Body length:", body.length);
-    console.log("Preview:\n", body.slice(0, 300));
-  })
-  .catch(err => {
-    console.log("Error:", err.message);
-  });
+During recon or debugging, it is often useful to quickly:
+- Check HTTP status codes
+- See response size
+- Preview response content
 
-console.log("=========================================");
-console.log("Developed by sudo_0xksh");
-console.log("=========================================");
+This tool provides that information with a single command.
+
+---
+
+## Features
+
+- Fetches any HTTP/HTTPS URL
+- Displays response status code
+- Prints response body length
+- Shows a short preview of the response body
+- Lightweight and fast
+- No external dependencies
+
+---
+
+## Usage
+
+Run the script like this  
+```bash
+node fetch_recon.js <url>
